@@ -1,0 +1,43 @@
+const axios = require('axios');
+import { getPathways } from './pathways';
+
+jest.mock('axios');
+describe('pathways', () => {
+  describe('#getPathways', () => {
+    const mockUrl = 'test.co.uk/url';
+    it('should return the correct response', async () => {
+      const mockedData = {
+        data: [
+          {
+            id: 12,
+            title: 'KS4',
+            internal_title: 'KS4',
+            url: 'https://www.blackbullion.com/pathways/key-stage-4',
+            intro: '',
+            duration: '9 min',
+            image: 'https://prodcontent.blackbullion.com/images/pathways/12/thumb',
+            type: 'pathway',
+            has_summative_assessment: false,
+          },
+        ],
+        message: 'Success',
+        success: true,
+      };
+
+      axios.mockImplementationOnce(() => Promise.resolve(mockedData));
+      await expect(getPathways(mockUrl)).resolves.toEqual(mockedData.data);
+    });
+
+    it('should return empty array when no response returned', async () => {
+      const mockedData = {};
+      axios.mockImplementationOnce(() => Promise.resolve(mockedData));
+      await expect(getPathways(mockUrl)).resolves.toEqual([]);
+    });
+
+    it('should throw error if request fails', async () => {
+      const mockedError = new Error('mock error');
+      axios.mockImplementationOnce(() => Promise.reject(mockedError));
+      await expect(getPathways(mockUrl)).rejects.toThrow(mockedError);
+    });
+  });
+});
