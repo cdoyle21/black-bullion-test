@@ -1,4 +1,4 @@
-import { Pathway, getPathways } from '@/components/services/pathways';
+import { Pathway, getPathways } from '../components/services/pathways';
 import { GetServerSideProps } from 'next';
 import dynamic from 'next/dynamic';
 import { FC } from 'react';
@@ -31,10 +31,9 @@ export const getServerSideProps: GetServerSideProps = async ({}): Promise<{ prop
 };
 
 const Home: FC<Props> = ({ pathways }) => {
-  console.log(pathways);
   return (
     <main>
-      <Library />
+      <Library pathways={pathways} />
     </main>
   );
 };

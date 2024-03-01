@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-enum PathwayType {
+export enum PathwayType {
   PATHWAY = 'pathway',
 }
 

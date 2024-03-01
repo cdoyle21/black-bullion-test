@@ -1,5 +1,5 @@
 const axios = require('axios');
-import { getPathways } from './pathways';
+import { PathwayType, getPathways } from './pathways';
 
 jest.mock('axios');
 describe('pathways', () => {
@@ -9,14 +9,14 @@ describe('pathways', () => {
       const mockedData = {
         data: [
           {
-            id: 12,
-            title: 'KS4',
-            internal_title: 'KS4',
-            url: 'https://www.blackbullion.com/pathways/key-stage-4',
-            intro: '',
-            duration: '9 min',
-            image: 'https://prodcontent.blackbullion.com/images/pathways/12/thumb',
-            type: 'pathway',
+            id: 1,
+            title: 'Learn React',
+            internal_title: 'Learn React',
+            url: '/react-pathway',
+            intro: 'A comprehensive React learning pathway.',
+            duration: '6 months',
+            image: 'path/to/image.jpg',
+            type: PathwayType.PATHWAY,
             has_summative_assessment: false,
           },
         ],
