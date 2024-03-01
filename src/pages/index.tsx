@@ -32,9 +32,9 @@ export const getServerSideProps: GetServerSideProps = async ({}): Promise<{ prop
 
 const Home: FC<Props> = ({ pathways }) => {
   return (
-    <main>
+    <>
       <Library pathways={pathways} />
-    </main>
+    </>
   );
 };
 

@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { Container } from './Library.styles';
+import { GridContainer, Item } from './Library.styles';
 import { Pathway } from '../../../components/services/pathways';
 import PathwayItem from '../../../components/molecules/PathwayItem';
 
@@ -8,11 +8,14 @@ export interface Props {
 }
 
 const Library: FC<Props> = ({ pathways }) => {
-  const pathway = pathways[1];
   return (
-    <Container>
-      <PathwayItem pathway={pathway} />
-    </Container>
+    <GridContainer data-testid="LibraryGrid">
+      {pathways.map((pathway: Pathway) => (
+        <Item key={pathway.id} data-testid="LibraryGridItem">
+          <PathwayItem pathway={pathway} />
+        </Item>
+      ))}
+    </GridContainer>
   );
 };
 

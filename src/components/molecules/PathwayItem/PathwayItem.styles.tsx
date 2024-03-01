@@ -34,15 +34,27 @@ export const Type = styled.span`
 export const Duration = styled.span``;
 
 export const Title = styled.h1`
+  height: 55px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 2;
   margin-bottom: 10px;
 `;
 
 export const IntroWrapper = styled.div`
   margin-bottom: 10px;
   opacity: 0.5;
+  min-height: 54px;
 `;
 
 export const Intro = styled.span`
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 3;
   font-weight: 700;
   line-height: 1.5;
 `;

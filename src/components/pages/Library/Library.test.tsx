@@ -1,5 +1,5 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 
 import Library from './Library';
 import { PathwayType } from '../../../components/services/pathways';
@@ -36,8 +36,10 @@ const renderComponent = () => {
 describe('Library Component', () => {
   describe('Renders Library Element', () => {
     it('should render the component', () => {
-      const { container } = renderComponent();
-      expect(container).toBeDefined();
+      renderComponent();
+
+      expect(screen.getByTestId('LibraryGrid')).toBeInTheDocument();
+      expect(screen.getAllByTestId('LibraryGridItem')).toHaveLength(mockedData.length);
     });
   });
 });
