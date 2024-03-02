@@ -1,8 +1,11 @@
 import { Pathway, getPathways } from '../components/services/pathways';
 import { GetServerSideProps } from 'next';
 import dynamic from 'next/dynamic';
-import { FC } from 'react';
+import { FC, useState } from 'react';
 
+const PathwaySortingAndFiltering = dynamic(
+  () => import('../components/organisms/PathwaySortingAndFiltering/PathwaySortingAndFiltering'),
+);
 const Library = dynamic(() => import('../components/pages/Library'));
 
 interface Props {
@@ -31,9 +34,16 @@ export const getServerSideProps: GetServerSideProps = async ({}): Promise<{ prop
 };
 
 const Home: FC<Props> = ({ pathways }) => {
+  const [filteredData, setFilteredData] = useState(pathways);
+
   return (
     <>
-      <Library pathways={pathways} />
+      <PathwaySortingAndFiltering
+        pathways={pathways}
+        filteredPathways={filteredData}
+        setFilteredData={setFilteredData}
+      />
+      <Library pathways={filteredData} />
     </>
   );
 };
