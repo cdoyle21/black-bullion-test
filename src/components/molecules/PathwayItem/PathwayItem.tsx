@@ -19,13 +19,14 @@ import BookIcon from '../../../../public/icons8-book-30.png';
 
 export interface Props {
   pathway: Pathway;
+  isVisible?: boolean;
 }
 
-const PathwayItem: FC<Props> = ({ pathway }) => {
+const PathwayItem: FC<Props> = ({ pathway, isVisible = true }) => {
   const { image, type, duration, title, intro, url } = pathway;
 
   return (
-    <Container data-testid="PathwayItem">
+    <Container isVisible={isVisible} data-testid="PathwayItem">
       <NextLink href={url}>
         <ImageWrapper>
           <OptimisedImageWithFallback src={image} alt={`${title}_pathway`} height={150} />
@@ -47,7 +48,7 @@ const PathwayItem: FC<Props> = ({ pathway }) => {
       <NextLink href={url} data-testid="PathwayItem-ViewPathwayLink">
         <ViewPathwayWrapper>
           View pathway
-          <Image src={ArrowRight} alt={'arrow_left'} />
+          <Image src={ArrowRight} alt={'arrow_right'} />
         </ViewPathwayWrapper>
       </NextLink>
     </Container>

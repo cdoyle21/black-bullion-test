@@ -20,7 +20,7 @@ export const Button = styled.button<{
   background: white;
   color: ${({ isOpen }): string => (isOpen ? 'blue' : '#582f7e')};
   user-select: none;
-  padding: 8px 8px 8px 12px;
+  padding: 8px 8px 8px 8px;
 
   &:hover {
     color: blue;
@@ -28,6 +28,11 @@ export const Button = styled.button<{
 
   &:focus {
     color: blue;
+  }
+
+  @media only screen and (min-width: 768px) {
+    border: 5px solid #582f7e;
+    font-size: 2em;
   }
 `;
 
@@ -38,12 +43,19 @@ export const DropdownMenuContainer = styled.div<{
   outline: none;
   width: auto;
   border-radius: 8px;
-  border: 1px solid purple;
+  border: 1px solid #582f7e;
   background: white;
+  color: #582f7e;
   right: ${({ openMenuLocation }) => (openMenuLocation === 'right' ? 0 : 'auto')};
   left: ${({ openMenuLocation }) => (openMenuLocation === 'left' ? 0 : 'auto')};
   z-index: 20;
   top: 35px;
+
+  @media only screen and (min-width: 768px) {
+    border: 5px solid #582f7e;
+    font-size: 2em;
+    top: 65px;
+  }
 `;
 
 export const DropdownMenu = styled.div`

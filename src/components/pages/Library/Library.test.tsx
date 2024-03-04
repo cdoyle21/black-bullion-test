@@ -16,5 +16,19 @@ describe('Library Component', () => {
       expect(screen.getByTestId('LibraryGrid')).toBeInTheDocument();
       expect(screen.getAllByTestId('LibraryGridItem')).toHaveLength(mockedPathwayData.length);
     });
+
+    it('renders Pagination component when not on mobile', () => {
+      render(<Library pathways={mockedPathwayData} />);
+      const pagination = screen.getByTestId('PaginationContainer');
+      expect(pagination).toBeInTheDocument();
+    });
+
+    it('does not render Pagination component on mobile', () => {
+      global.window.innerWidth = 767;
+
+      render(<Library pathways={mockedPathwayData} />);
+      const pagination = screen.queryByTestId('PaginationContainer');
+      expect(pagination).toBeNull();
+    });
   });
 });

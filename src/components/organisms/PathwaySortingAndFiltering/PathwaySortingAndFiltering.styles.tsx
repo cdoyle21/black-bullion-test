@@ -17,7 +17,7 @@ export const Button = styled.button`
   background: white;
   color: #582f7e;
   user-select: none;
-  padding: 8px 8px 8px 12px;
+  padding: 8px 8px 8px 8px;
 
   &:hover {
     color: blue;
@@ -25,5 +25,10 @@ export const Button = styled.button`
 
   &:focus {
     color: blue;
+  }
+
+  @media only screen and (min-width: 768px) {
+    border: 5px solid #582f7e;
+    font-size: 2em;
   }
 `;

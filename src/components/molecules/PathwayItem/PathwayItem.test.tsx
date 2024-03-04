@@ -37,4 +37,10 @@ describe('PathwayItem', () => {
 
     expect(viewPathwayLink).toHaveAttribute('href', '/react-pathway');
   });
+
+  it('does not render pathway item when isVisible is false', () => {
+    render(<PathwayItem pathway={mockPathway} isVisible={false} />);
+
+    expect(screen.getByTestId('PathwayItem')).toHaveStyle(`display: none`);
+  });
 });

@@ -28,3 +28,9 @@ export const Item = styled.div`
     grid-column: span 2;
   }
 `;
+
+export const PaginationWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;

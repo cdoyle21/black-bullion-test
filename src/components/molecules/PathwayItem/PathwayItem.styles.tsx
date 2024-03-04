@@ -1,10 +1,15 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+interface ContainerProps {
+  isVisible?: boolean;
+}
+
+export const Container = styled.div<ContainerProps>`
   grid-column: auto;
   width: 100%;
   padding: 20px 20px 15px;
   max-width: 285px;
+  ${({ isVisible }): string => (isVisible ? '' : 'display: none;')}
 `;
 
 export const ImageWrapper = styled.div`

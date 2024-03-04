@@ -24,7 +24,7 @@ export const getServerSideProps: GetServerSideProps = async ({}): Promise<{ prop
       },
     };
   } catch (error) {
-    console.log('error fetching Subtopic page - Explore tab data: ', error);
+    console.log('error fetching Library page', error);
     return {
       props: {
         pathways: [],
