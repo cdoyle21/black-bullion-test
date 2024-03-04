@@ -26,7 +26,7 @@ const Library: FC<Props> = ({ pathways }) => {
           <Item key={pathway.id} data-testid="LibraryGridItem">
             <PathwayItem
               pathway={pathway}
-              isVisible={
+              isVisible={isMobile ||
                 index >= (activeCarousel - 1) * carouselConfig &&
                 index < activeCarousel * carouselConfig
               }
